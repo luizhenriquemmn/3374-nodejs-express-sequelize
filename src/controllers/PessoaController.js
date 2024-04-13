@@ -1,14 +1,16 @@
-const database = require("../models");
+/* eslint-disable linebreak-style */
+/* eslint-disable quotes */
+/* eslint-disable linebreak-style */
+//const database = require("../models");
 
-class PessoaController {
-  static async pegaTodas(req, res) {
-    try {
-      console.log("teste");
-      const listaDePessoas = await database.Pessoa.findAll();
-      return res.status(200).json(listaDePessoas);
-    } catch (erro) {
-      console.log(erro);
-    }
+const Controler = require("./Controller.js");
+const PessoaServices = require("../services/PessoaServices.js");
+
+const pessoaServices = new PessoaServices();
+
+class PessoaController extends Controler {
+  constructor() {
+    super(pessoaServices);
   }
 }
 
